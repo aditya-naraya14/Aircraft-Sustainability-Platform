@@ -1,0 +1,31 @@
+export class AircraftData {
+  name?: string;
+  material_composition?: string;
+  age?:number;
+  condition?: string;
+  location?: string;
+  manufacturer_name?: string;
+  model_name?: string;
+  potential_use_case?: string;
+  new_part_part_carbon_footprint?:number;
+  renew_part_carbon_foot_print?:number;
+  new_part_water_usage?:number;
+  renew_part_water_usage?:number;
+  new_part_landfill_waste?:number;
+  renew_part_landfill_waste?:number;
+  new_part_energy_consumption?:number;
+  renew_part_energy_consumption?:number;
+  recycle_rate?:number;
+  new_part_toxicity_score?:number;
+  renew_part_toxicity_score?:number;
+  remanufacturing_potential?:number;
+  lifecycle_assesment?:number;
+  renew_material_content?:number;
+  carbon_footprint_saved?:number;
+  water_usage_saved?:number;
+  landfill_waste_saved?:number;
+  energy_saved?:number;
+  toxic_score_difference?:number;
+  remanufacturing_potential_percent?:number;
+  life_cycle_assesment_score?:number;
+}

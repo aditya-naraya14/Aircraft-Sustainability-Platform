@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+
 
 export interface MyObject {
   id: number;
@@ -15,17 +18,24 @@ export interface MyObject {
 export class HomeComponent {
 
   displayedColumns;
-  myList: MyObject[];
+  myList;
 
   constructor( private httpClient: HttpClient) { 
     this.getData()
   }
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.myList.filter = filterValue.trim().toLowerCase();
+  }
 
   getData() {
     this.httpClient.get('http://localhost:8000/api/get_data').subscribe((data:any[]) => {
       if (data && data.length > 0) {
-        this.myList = data;
+        this.myList = new MatTableDataSource(data);
+        this.myList.paginator = this.paginator;
         this.displayedColumns = Object.keys(data[0]).filter(key => key!='part_id')
 
       }
