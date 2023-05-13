@@ -45,6 +45,8 @@ class PartViewSet(viewsets.ModelViewSet):
         print(len(aircraft_model))
         if len(aircraft_model) == 0:
             aircraft_model = AircraftModel.objects.create(**aircraft_obj)
+        else:
+            aircraft_model = aircraft_model[0]
 
         part_detail_obj = {
             "id": uuid.uuid4(),
