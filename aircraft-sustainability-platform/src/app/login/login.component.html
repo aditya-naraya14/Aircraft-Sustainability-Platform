@@ -1,0 +1,47 @@
+<div class="login">
+    <mat-card class="login-card" style="width:40vw">
+      <mat-card-content>
+        <div>
+          <h2>Sign in</h2>
+        </div>
+        <br>
+        <br>
+  
+        <form *ngIf="loginForm" [formGroup]="loginForm" class="login-form" (keydown.enter)="onNext()">
+          <div class="row">
+            <mat-icon>person</mat-icon>
+            <span style="width: 10px;"></span>
+            <mat-form-field class="full-width">
+              <input type="text" matInput placeholder="Username" formControlName="userName">
+              <mat-error *ngIf="loginForm.get('userName').hasError('maxlength')">
+                Max 15 characters are <strong>allowed</strong>
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('userName').hasError('required')">
+                User name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('userName').hasError('minlength')">
+                Min 5 characters are <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="row">
+            <mat-icon>lock</mat-icon>
+            <span style="width: 10px;"></span>
+            <mat-form-field class="full-width">
+              <input type="password" matInput placeholder="Password" formControlName="password">
+              <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+        </form>
+      </mat-card-content>
+  
+      <!-- <mat-card-actions> -->
+        <button mat-raised-button style="float:right;" (click)="onNext()">Next</button>
+      <!-- </mat-card-actions> -->
+    </mat-card>
+  </div>
+  

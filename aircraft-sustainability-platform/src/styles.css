@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-sort-header-button{
+	margin-left: 40px !important;
+}
+
+.mat-select-panel {
+	max-width : 100% !important;
+}
+
+.w-75{
+    max-width: 75px;
+	overflow: hidden;
+    word-break: break-all;
+}
+
+.w-100{
+	max-width: 100px;
+	overflow: hidden;
+    word-break: break-all;
+}
+.w-50{
+	max-width: 50px;
+}
+
+.full_url .mat-form-field-infix{
+	width: 800px !important;
+}
