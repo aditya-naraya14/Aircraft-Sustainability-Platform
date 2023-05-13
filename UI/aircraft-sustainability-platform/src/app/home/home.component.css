@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+}
+
+.card_width{
+    width: 100vw;
+    margin: 1%;
+    overflow: scroll;
+}
