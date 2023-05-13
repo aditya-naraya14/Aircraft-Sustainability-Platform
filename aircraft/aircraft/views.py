@@ -128,8 +128,21 @@ class DataToDisplay(serializers.ModelSerializer):
 part_list = PartViewSet.as_view({'get': 'list', 'post': 'create'})
 aircraft_list = AircraftModelViewSet.as_view({'get': 'list', 'post': 'create'})
 
+
+@api_view(['GET'])
+def get_manufacturer(request):
+    data = AircraftModel.objects.all().values_list("manufacturer_name", flat=True)
+    resp = set(data)
+
+    return Response(resp)
 @api_view(['GET'])
 def get_values_to_display(request):
     data = Part.objects.select_related('part_detail_id', 'model_id').all()
     resp_data = DataToDisplay(data, many=True).data
     return Response(resp_data)
+
+
+@api_view(['GET'])
+def filter_data(request):
+    print(request.params)
+    return Response('')
